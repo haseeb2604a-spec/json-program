@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Cards</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row" id="cards"></div>
+    <img src="/images (1).jfif" alt="">
+</div>
+
+<script>
+
+var stdobj = [
+    {
+        name: "Osama",
+        age: "18",
+        email: "Osama@gmail.com",
+        img: "/images.jfif"
+    },
+    {
+        name: "haseeb",
+        age: "20",
+        email: "haseeb@gmail.com",
+        img: "/images.jfif"
+    },
+    {
+        name: "Talha",
+        age: "19",
+        email: "talha@gmail.com",
+        img: "/images.jfif"
+    },
+    {
+        name: "gamer",
+        age: "21",
+        email: "gamer@gmail.com",
+        img: "/images.jfif"
+    }
+];
+
+var data = "";
+
+stdobj.forEach(function(val) {
+
+    data += `
+        <div class="col-md-3 mb-4">
+            <div class="card" style="width: 100%;">
+                <img src="${val.img}" class="card-img-top" alt="${val.name}">
+
+                <div class="card-body">
+                    <h5 class="card-title">${val.name}</h5>
+                    <p class="card-text">Age: ${val.age}</p>
+                    <p class="card-text">Email: ${val.email}</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+});
+
+document.getElementById("cards").innerHTML = data;
+
+</script>
+
+</body>
+</html>
