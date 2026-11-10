@@ -7,12 +7,40 @@
     <title>Students Cards</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f1f5f9;
+        }
+
+        .student-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .student-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .student-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="container mt-5">
+
+    <h1 class="text-center mb-5">Our Students</h1>
+
     <div class="row" id="cards"></div>
-    <img src="/images (1).jfif" alt="">
+
 </div>
 
 <script>
@@ -22,25 +50,25 @@ var stdobj = [
         name: "Osama",
         age: "18",
         email: "Osama@gmail.com",
-        img: "/images.jfif"
+        img: "images.jfif"
     },
     {
-        name: "haseeb",
+        name: "Haseeb",
         age: "20",
         email: "haseeb@gmail.com",
-        img: "/images.jfif"
+        img: "images%20(2).jfif"
     },
     {
         name: "Talha",
         age: "19",
         email: "talha@gmail.com",
-        img: "/images.jfif"
+        img: "images%20(3).jfif"
     },
     {
-        name: "gamer",
+        name: "Gamer",
         age: "21",
         email: "gamer@gmail.com",
-        img: "/images.jfif"
+        img: "images.jfif"
     }
 ];
 
@@ -49,16 +77,27 @@ var data = "";
 stdobj.forEach(function(val) {
 
     data += `
-        <div class="col-md-3 mb-4">
-            <div class="card" style="width: 100%;">
-                <img src="${val.img}" class="card-img-top" alt="${val.name}">
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
 
-                <div class="card-body">
+            <div class="card student-card h-100">
+
+                <img src="${val.img}" 
+                     class="card-img-top"
+                     alt="${val.name}"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x220?text=Image+Not+Found';">
+
+                <div class="card-body text-center">
+
                     <h5 class="card-title">${val.name}</h5>
+
                     <p class="card-text">Age: ${val.age}</p>
-                    <p class="card-text">Email: ${val.email}</p>
+
+                    <p class="card-text">${val.email}</p>
+
                 </div>
+
             </div>
+
         </div>
     `;
 
